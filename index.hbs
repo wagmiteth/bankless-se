@@ -1,0 +1,39 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{!-- The main content area --}}
+{{> "landing-info" }}
+<main id="site-main" class="site-main outer">
+    <div class="inner posts">
+
+        <div class="post-feed{{#match @custom.feed_layout "List"}} list{{/match}}">
+        {{!-- Get all posts for tag frontpage --}}
+        {{!-- {{#get "posts" filter="tags:[frontpage]" limit="1"}}
+            {{#each posts}}
+                {{> "post-card"}}
+            {{/each}}
+        {{/get}}
+
+                {{#get "posts" filter="tags:[frontpage]" limit="1"}}
+            {{#each posts}}
+                {{> "post-card"}}
+            {{/each}}
+        {{/get}} --}}
+            
+            {{#foreach posts}}
+                {{#has tag="Startsida"}}
+                    {{> "post-card"}}
+                {{/has}}
+                {{^has tag="Startsida"}}
+                    {{> "post-card"}}
+                {{/has}}
+                {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+                {{!-- {{> "post-card"}} --}}
+
+            {{/foreach}}
+        </div>
+    </div>
+</main>
+{{> "landing-sub-info" }}
+{{> "call-to-action" }}
