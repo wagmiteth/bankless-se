@@ -2251,7 +2251,7 @@ html.dark-mode .landing-info li span {
 .landing-info a,
 .landing-sub-info a,
 .call-to-action a {
-  background-color: var(#e8a9ac);
+  background-color:#e8a9ac;
   margin-top: 2rem;
   padding: 1rem 1rem;
   color: white;
