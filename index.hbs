@@ -5,8 +5,20 @@ into the {body} of the default.hbs template --}}
 {{!-- The main content area --}}
 {{> "landing-info" }}
 <main id="site-main" class="site-main outer">
-    <div class="inner posts">
 
+{{!-- Test area start --}}
+
+
+{{!-- Test area ends --}}
+
+    <div class="inner posts">
+<div class="post-feed">
+    {{#get "posts" filter="featured:true" limit="all"}}
+        {{#foreach posts}}
+            {{> "post-card-feature"}}
+        {{/foreach}}
+    {{/get}}
+</div>
         <div class="post-feed{{#match @custom.feed_layout "List"}} list{{/match}}">
         {{!-- Get all posts for tag frontpage --}}
         {{!-- {{#get "posts" filter="tags:[frontpage]" limit="1"}}
